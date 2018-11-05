@@ -1,5 +1,51 @@
 #include<stdio.h>
 #include <stdlib.h>
+#pragma warning(disable:4996)
+int find_date(int *arr[][3], int cols, int num){
+
+	int row = 0;
+	int col = cols - 1;
+	while (row < cols && 0 <= col){
+		if (arr[row][col] == num){
+			printf("找到了\n");
+			break;
+		}
+		else if (arr[row][col] < num){
+			++row;
+		}
+		else {
+
+			--col;
+		}
+		if (row>2 || col < 0){
+			printf("找不到\n");
+		}
+	}
+
+}
+int main(){
+	int  arr[3][3] = { { 1, 2, 3 }, { 2, 4, 5 }, { 6, 7, 8 } };
+	int a = 0;
+	scanf("%d", &a);
+	find_date(arr, 3, a);
+	system("pause");
+	return 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+#include<stdio.h>
+#include <stdlib.h>
 #pragma warning (disable:4996)
 
 void  reserve_size(char *pleft,char *pright){
@@ -39,7 +85,7 @@ int main(){
 	printf("%s", arr);
 	system("pause");
 }
-
+*/
 
 /*
 不使用（a+b）/2这种方式，求两个数的平均值。
